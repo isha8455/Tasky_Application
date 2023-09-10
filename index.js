@@ -1,3 +1,4 @@
+
 const state = {
     taskList: [],
 };
@@ -28,7 +29,7 @@ const htmlTaskContent = ({id, title, description, type, url}) => `
                 </div>    
             </div>
             <div class='card-footer'>
-                <button type='button' class='btn btn-outline-primary float-end' data-bs-toggle='modal' data-bs-target='#showTask'>open Task</button>
+                <button type='button' class='btn btn-outline-primary float-end' data-bs-toggle='modal' data-bs-target='#showTask'>Open Task</button>
             </div>
         </div>
     </div>
@@ -36,7 +37,7 @@ const htmlTaskContent = ({id, title, description, type, url}) => `
 
 
 const htmlModalContent = ({id, title, description, url}) => {
-    const date = new Date(parseInt(id))
+    const date = new Date(parseInt(id));
     return `
     <div id=${id}>
         ${
@@ -46,8 +47,9 @@ const htmlModalContent = ({id, title, description, url}) => {
         <strong class='text-sm text-muted' >Created on ${date.toDateString()}</strong>
         <h4 class='my-2'>${title}</h4>
         <p class='lead text-muted'>${description}</p>
+    </div>    
     `
-}
+};
 
 const updateLocalStorage = () => {
     localStorage.setItem('task',JSON.stringify({
@@ -60,6 +62,26 @@ const loadInitialData = () => {
 
 if(localStorageCopy) state.taskList = localStorageCopy.tasks;
 state.taskList.map((cardDate) => {
-    taskContents.insertAdjacentHTML()
-})
+    taskContents.insertAdjacentHTML("beforeend", htmlTaskContent(cardDate));
+});
 };
+
+const handleSubmit = () => {
+    const id = `${Date.now()}`
+    const input = {
+        url: document.getElementById('imageUrl').value,
+        title: document.getElementById('taskTitle').value,
+        description: document.getElementById('taskDescription').value,
+        type: document.getElementById('tags').value,
+    };
+
+    if(input.title=== '' || input.description=== '' || input.type=== ''){
+        return alert("Please fill out the all necessary fields!");
+    }
+    taskContents.insertAdjacentElement(
+        "beforeend", htmlTaskContent({...input, id,})
+    );
+
+    state.taskList.push({...input, id});
+    updateLocalStorage();
+}
