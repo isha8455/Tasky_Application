@@ -14,101 +14,45 @@
       crossorigin="anonymous"
     />
     <!-- Font Awesome -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   </head>
   <body>
     <!-- Mobile Toogler Button For Adding A New Item -->
     <div class="add__new__btn__mobile__only">
-      <button
-        type="button"
-        class="btn btn-primary"
-        data-bs-toggle="modal"
-        data-bs-target="#addNewModal"
-      >
-        <i class="fas fa-plus"></i>Add New Item
-      </button>
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addNewModal" >
+        <i class="fas fa-plus"></i>Add New Item</button>
     </div>
 
     <!-- Modal for Adding a New Item-->
-    <div
-      class="modal fade"
-      id="addNewModal"
-      tabindex="-1"
-      aria-labelledby="addNewModalLabel"
-      aria-hidden="true"
-    >
+    <div class="modal fade" id="addNewModal" tabindex="-1" aria-labelledby="addNewModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header">
             <h1 class="modal-title fs-5" id="addNewModalLabel">Add New Task</h1>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
             <form>
               <div class="mb-3">
                 <label for="imageUrl" class="form-label">Image URL</label>
-                <input
-                  type="url"
-                  class="form-control"
-                  id="imageUrl"
-                  placeholder="https://example.com/displayImg.png"
-                />
+                <input type="url" class="form-control" id="imageUrl" placeholder="https://example.com/displayImg.png" />
               </div>
               <div class="mb-3">
                 <label for="taskTitle" class="form-label">Task Title</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="taskTitle"
-                  placeholder="please enter your task title here.."
-                  required
-                />
+                <input type="text" class="form-control" id="taskTitle" placeholder="please enter your task title here.." required/>
               </div>
               <div class="mb-3">
                 <label for="tags" class="form-label">Task Type</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="tags"
-                  placeholder="please enter your task title here.."
-                  required
-                />
+                <input type="text" class="form-control" id="tags" placeholder="please enter your task title here.." required />
               </div>
               <div class="mb-3">
-                <label for="taskDescription" class="form-label">
-                  Task Description
-                </label>
-                <textarea
-                  type="text"
-                  class="form-control"
-                  id="taskDescription"
-                  rows="4"
-                  placeholder="please enter your detail task description here.."
-                  required
-                >
-                </textarea>
+                <label for="taskDescription" class="form-label">Task Description</label>
+                <textarea type="text" class="form-control" id="taskDescription" rows="4" placeholder="please enter your detailed task description here.." required></textarea>
               </div>
             </form>
           </div>
           <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-bs-dismiss="modal"
-            >
-              Close
-            </button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
             <button type="submit" class="btn btn-primary">Save changes</button>
           </div>
         </div>
@@ -116,40 +60,21 @@
     </div>
 
     <!-- Modal for viewing the detailed info on the card-->
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#showTask">
-      Launch demo modal
-    </button>
+    
     <!-- showTask button trigger has not been defined yet -->
-    <div
-      class="modal fade"
-      id="showTask"
-      tabindex="-1"
-      aria-labelledby="showTaskLabel"
-      aria-hidden="true"
-    >
+    <div class="modal fade" id="showTask" tabindex="-1" aria-labelledby="showTaskLabel" aria-hidden="true" >
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
+
           <div class="modal-header">
-            <h1 class="modal-title fs-5" id="showTaskLabel">Modal title</h1>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
+            <h1 class="modal-title fs-5" id="showTaskLabel">Task Details</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body task__modal__body">
-            
           </div>
+
           <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-bs-dismiss="modal"
-            >
-              Close
-            </button>
-            <button type="button" class="btn btn-primary">Save changes</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" >Close</button>
           </div>
         </div>
       </div>
@@ -161,15 +86,7 @@
         <a class="navbar-brand" href="#">Tasky Application</a>
 
         <!-- hamberg option/toggler options -->
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" >
           <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -180,31 +97,22 @@
               <a class="nav-link active" aria-current="page" href="#">Home</a>
             </li>
           </ul>
+
           <!-- Add a task -->
-          <button
-            class="btn btn-outline-success"
-            type="submit"
-            data-bs-toggle="modal"
-            data-bs-target="#addNewModal"
-          >
+          <button class="btn btn-outline-success" type="submit" data-bs-toggle="modal" data-bs-target="#addNewModal" >
             <i class="fas fa-plus"></i>Add New Item
           </button>
         </div>
       </div>
     </nav>
+
     <!-- Main Container -->
     <div class="container text-center">
       <section class="mt-4">
         <div class="row justify-content-center">
           <div class="col-md-6">
             <div class="input-group flex-nowrap shadow-lg">
-              <input
-                type="search"
-                class="form-control"
-                placeholder="Search Task"
-                aria-label="Username"
-                aria-describedby="addon-wrapping"
-              />
+              <input type="search" class="form-control" placeholder="Search Task" aria-describedby="addon-wrapping" />
               <span class="input-group-text" id="addon-wrapping">
                 <i class="fas fa-search"></i>
               </span>
@@ -220,13 +128,44 @@
       </section>
     </div>
 
+    <!-- random approach just to show the card on the screen-->
+   <div class='col-md-6 col-lg-4 mt-3'  id=${id} key=${id}>
+        <div class='card shadow task__card'>
+            <div class='card-header d-flex gap-2 justify-content-end task__card__header'>
+                <button type='button' class='btn btn-outline-info mr-2' name=${id}><i class='fas fa-pencil-alt'></i></button>
+                <button type='button' class='btn btn-outline-danger mr-2' name=${id}><i class='fas fa-trash-alt'></i></button>
+            </div>
+            <div class='card-body'>
+                ${
+                    url &&
+                    `<img src=${url} alt='card image' class='card-img-top' md-3 rounded-md'/>`
+                }
+                <h4 class='card-title'>title</h4>
+                <p class='card-text text-muted'>description</p>
+                <div class='tags d-flex flex-wrap'>
+                  <span class='badge text-white bg-primary m-1'>type</span>
+                </div> 
+                <div class='card-footer'>
+                  <button type='button' class='btn btn-outline-primary float-end' data-bs-toggle='modal' data-bs-target='#showTask'>open Task</button>
+                </div>   
+            </div>
+        </div>
+    </div>
+
+    <!-- random modal demo -->
+    <div id=${id}>
+        ${
+            url &&
+            `<img src=${url} alt='card image' class='img-fluid rounded place__holder__image mb-3' />`
+             <strong class='text-sm text-muted' >Created on ${date.toDateString()}</strong>
+             <h4 class='my-2'>${title}</h4>
+             <p class='lead text-muted'>${description}</p>
+         }
+
+
     <!-- Custom JS file -->
     <script src="index.js"></script>
     <!-- BootStrap CDN -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
   </body>
 </html>
