@@ -2,7 +2,7 @@ const state = {
   taskList: [],
 };
 
-
+// DOM
 const taskContents = document.querySelector(".task__contents");
 const taskModal = document.querySelector(".task__modal__body");
 
@@ -116,20 +116,19 @@ const deleteTask = (e) => {
   // console.log(removeTask);
   state.taskList = removeTask;
 
-  console.log("updated arr", state.taskList);
 
   updateLocalStorage();
-  
+  // I tag was not working fine
   if (type === "BUTTON") {
-    
+    // console.log(e.target.parentNode.parentNode.parentNode);
     return e.target.parentNode.parentNode.parentNode.parentNode.removeChild(
       e.target.parentNode.parentNode.parentNode
     );
-  } else if (type === "I") {
-    return e.target.parentNode.parentNode.parentNode.parentNode.parentNode.removeChild(
-      e.target.parentNode.parentNode.parentNode.parentNode
-    );
   }
+  return e.target.parentNode.parentNode.parentNode.parentNode.parentNode.removeChild(
+    e.target.parentNode.parentNode.parentNode.parentNode
+  );
+
   //  updateLocalStorage();
 };
 
@@ -152,11 +151,10 @@ const editTask = (e) => {
     parentNode = e.target.parentNode.parentNode.parentNode;
   }
 
-
   taskTitle = parentNode.childNodes[3].childNodes[3];
   taskDescription = parentNode.childNodes[3].childNodes[5];
   taskType = parentNode.childNodes[3].childNodes[7].childNodes[1];
-  // console.log(taskTitle, taskDescription, taskType);
+  console.log(taskTitle, taskDescription, taskType);
   submitButton = parentNode.childNodes[5].childNodes[1];
   // console.log(submitButton);
 
@@ -176,7 +174,7 @@ const saveEdit = (e) => {
 
   const targetID = e.target.id;
   const parentNode = e.target.parentNode.parentNode;
-  
+  // console.log(parentNode);
 
   const taskTitle = parentNode.childNodes[3].childNodes[3];
   const taskDescription = parentNode.childNodes[3].childNodes[5];
@@ -188,7 +186,7 @@ const saveEdit = (e) => {
     taskDescription: taskDescription.innerHTML,
     taskType: taskType.innerHTML,
   };
- 
+  
   let stateCopy = state.taskList;
 
   stateCopy = stateCopy.map((task) =>
@@ -213,4 +211,22 @@ const saveEdit = (e) => {
   submitButton.setAttribute("data-bs-toggle", "modal");
   submitButton.setAttribute("data-bs-target", "#showTask");
   submitButton.innerHTML = "Open Task";
+};
+
+// Search Functionality
+const searchTask = (e) => {
+  if (!e) e = window.event;
+
+  while (taskContents.firstChild) {
+    taskContents.removeChild(taskContents.firstChild);
+  }
+
+  const resultData = state.taskList.filter(({ title }) =>
+    title.includes(e.target.value)
+  );
+
+  console.log(resultData);
+  resultData.map((cardData) => {
+    taskContents.insertAdjacentHTML("beforeend", htmlTaskContent(cardData));
+  });
 };
